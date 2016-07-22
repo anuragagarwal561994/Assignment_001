@@ -16,8 +16,7 @@
   },
   "permissions": [
     "tabs",
-    "http://*/*",
-    "https://*/*"
+    "http://*.omdbapi.com/*"
   ],
   "content_scripts": [
     {
