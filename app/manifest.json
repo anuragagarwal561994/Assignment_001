@@ -21,7 +21,7 @@
   "content_scripts": [
     {
       "matches": [
-        "http://www.shush.se/"
+        "http://www.shush.se/*"
       ],
       "js": [
         "scripts/contentscript.js"
