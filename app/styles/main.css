@@ -1,3 +1,23 @@
 body {
-  padding: 20px;
+  padding: 5px 10px;
+  min-width: 300px;
+  font-size: 13px;
+}
+
+form label {
+  display: block;
+}
+
+form div {
+  margin: 10px 0;
+}
+
+form input {
+  font-size: 14px;
+  margin-top: 3px;
+}
+
+form button {
+  margin-left: 5px;
+  font-size: 13px;
 }

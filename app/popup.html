@@ -11,12 +11,22 @@
     <!-- endbuild -->
   </head>
   <body>
-    <h1>'Allo, 'Allo!</h1>
-
     <!-- build:js scripts/popup-vendor.js -->
     <!-- bower:js -->
     <!-- endbower -->
     <!-- endbuild -->
+
+    <form id="mdb_search_form">
+      <div>
+        <label for="title">Title</label>
+        <input type="text" name="title" style="width: 100%" id="title" placeholder="Movie/Series...">
+      </div>
+      <div>
+        <label for="year">Year</label>
+        <input type="number" name="year" id="year" min="1900">
+        <button>Submit</button>
+      </div>
+    </form>
 
     <!-- build:js scripts/popup.js -->
     <script src="scripts/popup.js"></script>
