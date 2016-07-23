@@ -65,6 +65,9 @@
     if (response.Actors) {
       movieDetails.appendChild(popupTextElement(`<b>Actors</b>: ${response.Actors}`));
     }
+    if (response.Writer) {
+      movieDetails.appendChild(popupTextElement(`<b>Writer</b>: ${response.Writer}`));
+    }
     if (response.Awards) {
       movieDetails.appendChild(popupTextElement(`<b>Awards</b>: ${response.Awards}`));
     }
