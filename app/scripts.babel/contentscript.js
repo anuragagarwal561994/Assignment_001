@@ -81,6 +81,11 @@
     if (response.Plot) {
       movieDetails.appendChild(popupTextElement(`${response.Plot}`));
     }
+    if (response.imdbID) {
+      movieDetails.appendChild(
+        popupTextElement(`<a href='http://www.imdb.com/title/${response.imdbID}/' target="_blank">More</a>`)
+      );
+    }
     contentElement.appendChild(movieDetails);
 
     popup.appendChild(contentElement);
