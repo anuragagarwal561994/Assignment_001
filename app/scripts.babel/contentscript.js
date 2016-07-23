@@ -62,10 +62,18 @@
     contentElement.appendChild(closeImg);
 
     movieDetails.id = 'mdb_balloon_details';
-    movieDetails.appendChild(popupTextElement(`<b>Actors</b>: ${response.Actors}`));
-    movieDetails.appendChild(popupTextElement(`<b>Awards</b>: ${response.Awards}`));
-    movieDetails.appendChild(popupTextElement(`<b>Genre</b>: ${response.Genre}`));
-    movieDetails.appendChild(popupTextElement(`${response.Plot}`));
+    if (response.Actors) {
+      movieDetails.appendChild(popupTextElement(`<b>Actors</b>: ${response.Actors}`));
+    }
+    if (response.Awards) {
+      movieDetails.appendChild(popupTextElement(`<b>Awards</b>: ${response.Awards}`));
+    }
+    if (response.Genre) {
+      movieDetails.appendChild(popupTextElement(`<b>Genre</b>: ${response.Genre}`));
+    }
+    if (response.Plot) {
+      movieDetails.appendChild(popupTextElement(`${response.Plot}`));
+    }
     contentElement.appendChild(movieDetails);
 
     popup.appendChild(contentElement);
