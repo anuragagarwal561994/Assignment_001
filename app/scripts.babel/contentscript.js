@@ -18,6 +18,21 @@
         var response = JSON.parse(xhr.responseText);
         if (response.Response === 'True') {
           renderElement(element, response);
+          element.onmouseover = (e) => {
+            var bodyElement = document.body;
+            var popupElement = popUp(response);
+            var elementPosition = getPosition(e.currentTarget);
+            var documentElement = document.documentElement || document.body.parentNode || document.body;
+            var scrollTop = window.pageYOffset || documentElement.scrollTop;
+            var previousPopup = document.getElementById('mdb_balloon');
+
+            popupElement.style.top = `${elementPosition.y + scrollTop + element.offsetHeight + 10}px`;
+            popupElement.style.left = `${elementPosition.x}px`;
+            if (previousPopup) {
+              bodyElement.removeChild(previousPopup);
+            }
+            bodyElement.appendChild(popupElement);
+          };
         }
       }
     };
@@ -26,22 +41,6 @@
 
   function renderElement(element, response) {
     element.innerText += ` (IMDB: ${response.imdbRating} / 10)`;
-
-    element.onmouseover = (e) => {
-      var bodyElement = document.body;
-      var popupElement = popUp(response);
-      var elementPosition = getPosition(e.currentTarget);
-      var documentElement = document.documentElement || document.body.parentNode || document.body;
-      var scrollTop = window.pageYOffset || documentElement.scrollTop;
-      var previousPopup = document.getElementById('mdb_balloon');
-
-      popupElement.style.top = `${elementPosition.y + scrollTop + element.offsetHeight + 10}px`;
-      popupElement.style.left = `${elementPosition.x}px`;
-      if (previousPopup) {
-        bodyElement.removeChild(previousPopup);
-      }
-      bodyElement.appendChild(popupElement);
-    };
   }
 
   function popUp(response){
