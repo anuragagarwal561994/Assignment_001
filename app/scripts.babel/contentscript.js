@@ -3,7 +3,7 @@
 (function() {
   var shows = getElements();
   for (var i = 0, length = shows.length; i < length; i++) {
-    fetchData(shows[i]);
+    fetchAndRender(shows[i]);
   }
 
   function getElements() {
@@ -14,7 +14,7 @@
     return element.innerText;
   }
 
-  function fetchData(element) {
+  function fetchAndRender(element) {
     var title = getTitle(element);
     var xhr = new XMLHttpRequest();
     xhr.open('GET', `http://www.omdbapi.com/?t=${title}`, true);
