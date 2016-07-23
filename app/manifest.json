@@ -41,5 +41,8 @@
     },
     "default_title": "001",
     "default_popup": "popup.html"
-  }
+  },
+  "web_accessible_resources": [
+    "images/close.png"
+  ]
 }

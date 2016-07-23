@@ -30,24 +30,33 @@
       var elementPosition = getPosition(e.currentTarget);
       var documentElement = document.documentElement || document.body.parentNode || document.body;
       var scrollTop = window.pageYOffset || documentElement.scrollTop;
+      var previousPopup = document.getElementById('mdb_balloon');
 
-      popupElement.style.display = 'block';
       popupElement.style.top = `${elementPosition.y + scrollTop + element.offsetHeight + 10}px`;
       popupElement.style.left = `${elementPosition.x}px`;
+      if (previousPopup) {
+        bodyElement.removeChild(previousPopup);
+      }
       bodyElement.appendChild(popupElement);
-    };
-    element.onmouseout = () => {
-      document.body.removeChild(document.getElementById('mdb_balloon'));
     };
   }
 
   function popUp(response){
     var popup = document.createElement('div');
+    var closeImg = document.createElement('img');
     var contentElement = document.createElement('div');
     var movieDetails = document.createElement('div');
 
     popup.id = 'mdb_balloon';
     contentElement.id = 'mdb_balloon_content';
+
+    closeImg.src = chrome.extension.getURL('images/close.png');
+    closeImg.title = 'Close';
+    closeImg.id = 'mdb_balloon_close';
+    closeImg.onclick = () => {
+      document.body.removeChild(popup);
+    };
+    contentElement.appendChild(closeImg);
 
     movieDetails.id = 'mdb_balloon_details';
     movieDetails.appendChild(popupTextElement(`<b>Actors</b>: ${response.Actors}`));
