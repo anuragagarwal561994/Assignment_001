@@ -15,7 +15,10 @@
     xhr.open('GET', `http://www.omdbapi.com/?t=${title}`, true);
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4 && xhr.status === 200) {
-        renderElement(element, JSON.parse(xhr.responseText));
+        var response = JSON.parse(xhr.responseText);
+        if (response.Response === 'True') {
+          renderElement(element, response);
+        }
       }
     };
     xhr.send();
