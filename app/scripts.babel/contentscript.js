@@ -1,6 +1,6 @@
 'use strict';
 
-(function() {
+(function () {
   var shows = getElements();
   for (var i = 0, length = shows.length; i < length; i++) {
     fetchAndRender(shows[i]);
@@ -48,7 +48,7 @@
     element.innerText += ` (IMDB: ${response.imdbRating} / 10)`;
   }
 
-  function popUp(response){
+  function popUp(response) {
     var popup = document.createElement('div');
     var closeImg = document.createElement('img');
     var contentElement = document.createElement('div');
