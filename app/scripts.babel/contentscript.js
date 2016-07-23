@@ -3,14 +3,19 @@
 (function() {
   var shows = getElements();
   for (var i = 0, length = shows.length; i < length; i++) {
-    fetchData(shows[i], shows[i].innerText);
+    fetchData(shows[i]);
   }
 
   function getElements() {
     return document.getElementsByClassName('caption');
   }
 
-  function fetchData(element, title) {
+  function getTitle(element) {
+    return element.innerText;
+  }
+
+  function fetchData(element) {
+    var title = getTitle(element);
     var xhr = new XMLHttpRequest();
     xhr.open('GET', `http://www.omdbapi.com/?t=${title}`, true);
     xhr.onreadystatechange = () => {
